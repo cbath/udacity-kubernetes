@@ -1,0 +1,78 @@
+Collecting scipy==1.3.1
+  Using cached scipy-1.3.1.tar.gz (23.6 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /home/cbath/.devops/bin/python3 /home/cbath/.devops/lib/python3.8/site-packages/pip/_vendor/pep517/in_process/_in_process.py prepare_metadata_for_build_wheel /tmp/tmpf26p6dgp
+       cwd: /tmp/pip-install-u95bwns6/scipy_ea06445fef1a41eeb89e35288285ab77
+  Complete output (169 lines):
+  lapack_opt_info:
+  lapack_mkl_info:
+  customize UnixCCompiler
+    libraries mkl_rt not found in ['/home/cbath/.devops/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+
+  openblas_lapack_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    libraries openblas not found in ['/home/cbath/.devops/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+
+  openblas_clapack_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    libraries openblas,lapack not found in ['/home/cbath/.devops/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+
+  atlas_3_10_threads_info:
+  Setting PTATLAS=ATLAS
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /home/cbath/.devops/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /home/cbath/.devops/lib
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/lib64
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib64
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib
+  customize UnixCCompiler
+
+
+
+  [CI CD]
+
+ubuntu@ip-172-31-82-135:~/backend$ cat .env.sample
+NODE_ENV=local
+VERSION=1
+TYPEORM_CONNECTION=postgres
+TYPEORM_MIGRATIONS_DIR=./src/migrations
+TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts
+TYPEORM_MIGRATIONS=./src/migrations/*.ts
+
+# Use these values for the local PG database from the Docker Compose file
+TYPEORM_HOST=localhost
+TYPEORM_PORT=5532
+TYPEORM_USERNAME=postgres
+TYPEORM_PASSWORD=password
+TYPEORM_DATABASE=glee
+
+ubuntu@ip-172-31-82-135:~/backend$ cat .env
+ENVIRONMENT=production
+NODE_ENV=production   
+TYPEORM_CONNECTION=postgres
+TYPEORM_MIGRATIONS_DIR=./src/migrations
+TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts
+TYPEORM_MIGRATIONS=./src/migrations/*.ts
+TYPEORM_HOST=database-1.cosq0dt7fcnn.us-east-1.rds.amazonaws.com
+TYPEORM_PORT=5432
+TYPEORM_USERNAME=cbath
+TYPEORM_PASSWORD=Unlock()0
+TYPEORM_DATABASE=database-1
