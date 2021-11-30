@@ -1,0 +1,16 @@
+[kubernets deploy]
+- https://www.docker.com/blog/simplifying-kubernetes-with-docker-compose-and-friends/
+- https://docs.docker.com/desktop/kubernetes/
+- https://github.com/docker/compose-on-kubernetes
+
+docker stack deploy --orchestrator=kubernetes --namespace my-app --compose-file docker-compose.yml words
+
+[kubctl config]
+kubectl version
+kubectl cluster-info
+kubectl get nodes
+
+[kubctl deploys]
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl get deployments
+kubectl get pods

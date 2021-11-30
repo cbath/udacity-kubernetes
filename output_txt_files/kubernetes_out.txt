@@ -1,0 +1,4 @@
+cbath@LPPHL-4JZ3QQ2:~/udacity-kubernetes/project$ kubectl port-forward udacity-ml 8000:80       
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000

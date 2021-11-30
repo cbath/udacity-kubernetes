@@ -1,41 +1,50 @@
-What are Some Characteristics of Cloud-Native Systems?
-Microservice oriented
+<include a CircleCI status badge, here>
 
-Microservices more closely map business logic to code. These systems can be updated and developed independently. A good example of a Microservice architecture would be a Python AWS Lambda application that uses API Gateway.
-Elastic
+## Project Overview
 
-Elastic systems can automatically scale to meet increased load without the involvement of humans. These same systems can then scale down again when load diminishes. By eliminating human touchpoints, which are error-prone, the quality increases. Likewise, because the system can scale up and down for demand, it is more efficient to run and costs less.
-Continuous Delivery
+In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
 
-Cloud-native systems leverage IAC (infrastructure as code) to fully define the infrastructure. This means that deployment can target a dynamically created environment and that software can be automatically deployed to a new environment as it is created. Humans again are eliminated from the process of deployment increasing quality.
-DevOps
+You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
-Cloud-native systems utilize DevOps. DevOps is a combination of automation, processes, and tools that increase automation, collaboration, and operational efficiency. Using Python for DevOps is a common way this automation is achieved.
-Agility
+### Project Tasks
 
-The agility of developing solutions improves. The cloud speeds up development time and increases quality through the use of IaC (Infrastructure as Code) and Continuous Delivery.
-Composable
+Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
+* Test your project code using linting
+* Complete a Dockerfile to containerize this application
+* Deploy your containerized application using Docker and make a prediction
+* Improve the log statements in the source code for this application
+* Configure Kubernetes and create a Kubernetes cluster
+* Deploy a container using Kubernetes and make a prediction
+* Upload a complete Github repo with CircleCI to indicate that your code has been tested
 
-Cloud-Native solutions are highly composable. The service design is one of integration. At the minimum, each service has an Application Programming Interface (API) that is consistent and discoverable. Other traits include well-defined behaviors for registration, discovery, and request management.
-Pros:
+You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
 
-    Ability to leverage near infinite resources of the cloud: Compute, Disk I/O, Storage, and Memory.
-    No up-front costs and resources can be metered to meet demand like an electric or water utility.
-    Applications are able to “go global” immediately with no extra investment.
-    Increased reliability is increased as many cloud services are themselves highly available. A good example is Amazon S3 which has nine nine’s availability or is 99.999999999% reliable.
-    Security is improved by consolidating to a centralized security model where there is a shared security partnership with the cloud vendor. They take care of portions of security such as access to the physical data center.
-    The speed applications can be developed and tested are dramatically improved. With concepts like IAC (Infrastructure as Code), complete replicas of a production environment can be provisioned, tested, and then destroyed. This leads to increased quality of software and speed in which software can be developed.
+**The final implementation of the project will showcase your abilities to operationalize production microservices.**
 
-Cons:
+---
 
-    Risk of creating systems that rely on a specific cloud vendor.
-    The cost involved in migrating an application to a different architecture.
-    A current organization may need to hire a new workforce trained to use the cloud or retrain their workforce.
+## Setup the Environment
 
-What is Fault-Tolerance?
+* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
+```bash
+python3 -m pip install --user virtualenv
+# You should have Python 3.7 available in your host. 
+# Check the Python path using `which python3`
+# Use a command similar to this one:
+python3 -m virtualenv --python=<path-to-Python3.7> .devops
+source .devops/bin/activate
+```
+* Run `make install` to install the necessary dependencies
 
-Fault Tolerance - the property that enables a system to continue operating properly in the event of the failure of one or more of its components.
+### Running `app.py`
 
-    An example is a typical car, which is designed so it will continue to be drivable if one of the tires is punctured or damaged.
-    In computer systems, a fault-tolerant design enables a system to continue its intended operation, possibly at a reduced level, rather than failing completely, when some part of the system fails.
+1. Standalone:  `python app.py`
+2. Run in Docker:  `./run_docker.sh`
+3. Run in Kubernetes:  `./run_kubernetes.sh`
 
+### Kubernetes Steps
+
+* Setup and Configure Docker locally
+* Setup and Configure Kubernetes locally
+* Create Flask app in Container
+* Run via kubectl
