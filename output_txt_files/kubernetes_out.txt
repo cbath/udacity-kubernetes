@@ -1,4 +1,29 @@
+[kubectl port monitoring]
 cbath@LPPHL-4JZ3QQ2:~/udacity-kubernetes/project$ kubectl port-forward udacity-ml 8000:80       
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000
+
+[kubectl pods logs]
+cbath@LPPHL-4JZ3QQ2:~/udacity-kubernetes/project$ kubectl logs -f udacity-ml
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 970-132-144
+[2021-11-29 21:40:16,906] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-11-29 21:40:16,928] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-11-29 21:40:16,941] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-11-29 21:40:16,945] INFO in app: Prediction: [20.35373177134412]
+172.17.0.1 - - [29/Nov/2021 21:40:56] "POST /predict HTTP/1.1" 200 -
